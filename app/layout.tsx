@@ -8,13 +8,17 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "Restaurant Website",
-  description: "واجهة مطعم عربية بسيطة وسهلة للطلب عبر واتساب.",
+  title: "K & Runch Website",
+  description: "مطعم مصري جامد | ممكن تطلب اورد من الواتساب.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ar" dir="rtl" className={`${cairo.variable} h-full antialiased`}>
+    <html
+      lang="ar"
+      dir="rtl"
+      className={`${cairo.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
