@@ -103,7 +103,7 @@ export const menuItems: MenuItem[] = [
     name: "زفير",
     description: "جمبري مشوي على الجريل",
     price: 130,
-    image: "/images/menu/ساندويتشات/زفير.png",
+    image: "/images/menu/ساندويتشات/زفير.jpg",
     available: true,
   },
   {
@@ -113,7 +113,7 @@ export const menuItems: MenuItem[] = [
     description:
       "قطع دجاج مقرمشة مع بيف بيكون وجبنة شيدر وموتزاريلا وفلفل وزيتون",
     price: 120,
-    image: "/images/menu/كريب مالح/كينج سموكد.jpg",
+    image: "/images/menu/كريب حادق/كينج سموكد.jpg",
     available: true,
   },
   {
@@ -122,7 +122,7 @@ export const menuItems: MenuItem[] = [
     name: "سونيك بووم",
     description: "دجاج مدخن مع فلفل وزيتون وجبنة وموتزاريلا",
     price: 120,
-    image: "/images/menu/كريب مالح/سونيك بووم.jpg",
+    image: "/images/menu/كريب حادق/سونيك بووم.jpg",
     available: true,
   },
   {
@@ -131,7 +131,7 @@ export const menuItems: MenuItem[] = [
     name: "أورجينال فاهيتا",
     description: "صدور دجاج مشوية مع شرائح بصل وجبنة وموتزاريلا",
     price: 125,
-    image: "/images/menu/كريب مالح/أورجينال فاهيتا.jpg",
+    image: "/images/menu/كريب حادق/أورجينال فاهيتا.jpg",
     available: true,
   },
   {
@@ -140,7 +140,7 @@ export const menuItems: MenuItem[] = [
     name: "رانشيشن",
     description: "دجاج مقرمش مع صوص رانش وفلفل وزيتون",
     price: 130,
-    image: "/images/menu/كريب مالح/رانشيشن.jpg",
+    image: "/images/menu/كريب حادق/رانشيشن.jpg",
     available: true,
   },
   {
