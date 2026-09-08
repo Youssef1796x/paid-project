@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const navLinks = [
   { id: "hero", label: "الرئيسية" },
   { id: "menu", label: "المنيو" },
@@ -14,32 +18,34 @@ const sections = [
 ];
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="page-shell">
       <header className="site-header">
-        <nav className="content-container flex h-[72px] items-center justify-between">
+        <nav className="content-container flex h-[72px] items-center justify-between gap-3 md:gap-6">
           <span className="sr-only">شريط التنقل</span>
-          <img
-            src="/images/profile/logo.jpg"
-            alt="شعار المطعم"
-            className="h-12 w-12 rounded-full border-2 border-[var(--surface)] object-cover shadow-[0_4px_14px_rgba(0,0,0,0.3)]"
-          />
-          <div className="hidden items-center gap-8 text-sm font-semibold md:flex">
+          <a href="#hero" aria-label="الرئيسية" className="logo-link">
+            <img
+              src="/images/profile/logo.jpg"
+              alt="شعار المطعم"
+              className="logo-img"
+            />
+          </a>
+          <div className="hidden items-center gap-6 text-sm font-semibold md:flex lg:gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.id}
-                href={`#${link.id}`}
-                aria-current={link.id === "hero" ? "page" : undefined}
-                className="nav-link"
-              >
+              <a key={link.id} href={`#${link.id}`} className="nav-link">
                 {link.label}
               </a>
             ))}
           </div>
           <button
             type="button"
-            aria-label="القائمة"
+            aria-label={isMenuOpen ? "إغلاق القائمة" : "فتح القائمة"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
             className="menu-btn md:hidden"
+            onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -51,13 +57,39 @@ export default function Home() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
-              <line x1="4" y1="7" x2="20" y2="7" />
-              <line x1="4" y1="12" x2="20" y2="12" />
-              <line x1="4" y1="17" x2="20" y2="17" />
+              {isMenuOpen ? (
+                <>
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                  <line x1="6" y1="18" x2="18" y2="6" />
+                </>
+              ) : (
+                <>
+                  <line x1="4" y1="7" x2="20" y2="7" />
+                  <line x1="4" y1="12" x2="20" y2="12" />
+                  <line x1="4" y1="17" x2="20" y2="17" />
+                </>
+              )}
             </svg>
           </button>
         </nav>
+        {isMenuOpen && (
+          <div id="mobile-navigation" className="mobile-navigation md:hidden">
+            <div className="content-container flex flex-col gap-1 pb-4 pt-2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.id}
+                  href={`#${link.id}`}
+                  className="mobile-nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </header>
 
       <main>

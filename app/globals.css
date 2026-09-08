@@ -78,12 +78,10 @@ body {
   border-radius: 2px;
   transition: width 0.25s ease;
 }
-.nav-link:hover,
-.nav-link[aria-current="page"] {
+.nav-link:hover {
   color: var(--ink);
 }
-.nav-link:hover::after,
-.nav-link[aria-current="page"]::after {
+.nav-link:hover::after {
   width: 100%;
 }
 
@@ -147,9 +145,9 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   border: 1px solid var(--line);
   background: transparent;
   color: var(--ink);
@@ -159,4 +157,49 @@ body {
 .menu-btn:hover {
   border-color: var(--accent);
   background: var(--accent-glow);
+}
+
+/* === Mobile navigation === */
+.mobile-navigation {
+  border-top: 1px solid var(--line);
+  background: rgba(36, 23, 32, 0.98);
+}
+.mobile-nav-link {
+  display: block;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: color 0.2s ease, padding-inline 0.2s ease;
+}
+.mobile-nav-link:hover {
+  padding-inline: 0.25rem;
+  color: var(--ink);
+}
+
+/* === Logo link === */
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  transition: transform 0.2s ease;
+}
+.logo-link:hover {
+  transform: scale(1.05);
+}
+.logo-img {
+  height: 48px;
+  width: 48px;
+  border-radius: 9999px;
+  border: 2px solid var(--surface);
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+@media (min-width: 768px) {
+  .logo-img {
+    height: 56px;
+    width: 56px;
+  }
 }
