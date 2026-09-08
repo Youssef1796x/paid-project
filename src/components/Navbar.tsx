@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <header className="site-header">
-      <nav className="content-container flex h-18 items-center justify-between gap-3 md:gap-6">
+      <nav className="content-container flex h-18 items-center gap-3 md:gap-6">
         <span className="sr-only">شريط التنقل</span>
 
         <a href="#hero" aria-label="الرئيسية" className="logo-link">
