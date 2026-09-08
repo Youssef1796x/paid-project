@@ -30,7 +30,7 @@ export default function Navbar() {
           />
         </a>
 
-        <div className="hidden items-center gap-6 text-sm font-semibold md:flex lg:gap-8">
+        <div className="hidden flex-1 items-center justify-center gap-6 text-sm font-semibold md:flex lg:gap-8">
           {navLinks.map((link) => (
             <a key={link.id} href={`#${link.id}`} className="nav-link">
               {link.label}
