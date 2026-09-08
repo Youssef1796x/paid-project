@@ -7,7 +7,7 @@ export default function Location() {
     >
       <div className="content-container py-16 sm:py-20 lg:py-24">
         <div className="max-w-2xl">
-          <span className="eyebrow">فينّا</span>
+          <span className="eyebrow">موقعنا</span>
 
           <h2 className="mt-5 text-2xl font-bold text-(--ink) sm:text-3xl">
             مستنيينك عندنا
@@ -28,7 +28,7 @@ export default function Location() {
             <div className="rounded-2xl border border-(--line) bg-(--surface) p-4">
               <p className="text-xs text-(--ink-muted)">مواعيدنا</p>
               <p className="mt-2 text-sm font-semibold text-(--ink)">
-                يوميًا من 12 لـ 12
+                يومياً من 10ص لـ 10م
               </p>
             </div>
 

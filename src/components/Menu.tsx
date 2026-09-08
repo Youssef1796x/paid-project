@@ -16,7 +16,7 @@ export default function Menu() {
           </h2>
 
           <p className="mt-3 max-w-xl text-sm leading-7 text-(--ink-soft) sm:text-base">
-            كل اللي بتحبه موجود عندنا، اختار القسم وابدأ شوف الأصناف.
+            كل اللي بتحبه موجود عندنا، اختار القسم وشوف الأصناف.
           </p>
         </div>
 

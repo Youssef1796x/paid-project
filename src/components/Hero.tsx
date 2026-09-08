@@ -13,7 +13,7 @@ export default function Hero() {
 
           <div className="mt-5 max-w-md border-r-4 border-(--accent) pr-5">
             <h1 className="text-3xl font-bold leading-tight text-(--ink) sm:text-4xl">
-              أكل يفرّحك من أول لقمة
+              أكل يفرحك من أول لقمة
             </h1>
 
             <p className="mt-4 text-sm leading-7 text-(--ink-soft) sm:text-base">
