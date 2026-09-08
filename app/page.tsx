@@ -1,3 +1,11 @@
+const navLinks = [
+  { id: "hero", label: "الرئيسية" },
+  { id: "menu", label: "المنيو" },
+  { id: "about", label: "من نحن" },
+  { id: "reviews", label: "آراء العملاء" },
+  { id: "location", label: "الموقع والتواصل" },
+];
+
 const sections = [
   { id: "menu", label: "المنيو" },
   { id: "about", label: "من نحن" },
@@ -14,25 +22,41 @@ export default function Home() {
           <img
             src="/images/profile/logo.jpg"
             alt="شعار المطعم"
-            className="h-12 w-12 rounded-full border-2 border-white object-cover shadow-[0_4px_14px_rgba(24,20,17,0.12)]"
+            className="h-12 w-12 rounded-full border-2 border-[var(--surface)] object-cover shadow-[0_4px_14px_rgba(0,0,0,0.3)]"
           />
-          <div className="hidden items-center gap-8 text-sm font-semibold text-[var(--ink-soft)] md:flex">
-            <a href="#hero" className="transition-colors hover:text-[var(--accent)]">
-              الرئيسية
-            </a>
-            {sections.map((section) => (
+          <div className="hidden items-center gap-8 text-sm font-semibold md:flex">
+            {navLinks.map((link) => (
               <a
-                key={section.id}
-                href={`#${section.id}`}
-                className="transition-colors hover:text-[var(--accent)]"
+                key={link.id}
+                href={`#${link.id}`}
+                aria-current={link.id === "hero" ? "page" : undefined}
+                className="nav-link"
               >
-                {section.label}
+                {link.label}
               </a>
             ))}
           </div>
-          <span className="rounded-full border border-[var(--line)] px-3 py-1 text-[11px] font-bold tracking-[0.12em] text-[var(--accent)]">
-            K &amp; R
-          </span>
+          <button
+            type="button"
+            aria-label="القائمة"
+            className="menu-btn md:hidden"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="4" y1="7" x2="20" y2="7" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="17" x2="20" y2="17" />
+            </svg>
+          </button>
         </nav>
       </header>
 
@@ -44,10 +68,10 @@ export default function Home() {
               <div className="mt-5 max-w-md border-r-4 border-[var(--accent)] pr-5">
                 <div className="h-3 w-32 rounded-full bg-[var(--ink)]" />
                 <div className="mt-4 h-3 w-52 rounded-full bg-[var(--ink)] opacity-75" />
-                <div className="mt-6 h-2 w-40 rounded-full bg-[var(--ink-soft)] opacity-40" />
+                <div className="mt-6 h-2 w-40 rounded-full bg-[var(--ink-soft)] opacity-50" />
               </div>
             </div>
-            <div className="order-1 overflow-hidden rounded-[28px] border border-[var(--line)] bg-[#17130f] shadow-[0_18px_50px_rgba(24,20,17,0.12)] lg:order-2">
+            <div className="order-1 overflow-hidden rounded-[28px] border border-[var(--line)] bg-[var(--surface)] shadow-[0_18px_50px_rgba(0,0,0,0.25)] lg:order-2">
               <img
                 src="/images/profile/banner.png"
                 alt="بانر المطعم"

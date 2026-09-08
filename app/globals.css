@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fdf8ef;
-  --foreground: #171717;
+  --background: #1a0f16;
+  --foreground: #f5ede4;
 
-  --ink: #1a1614;
-  --ink-soft: #6b6258;
-  --accent: #d4502a;
+  --ink: #f5ede4;
+  --ink-soft: #a89a8c;
+  --ink-muted: #7a6d62;
+  --accent: #e8623a;
   --accent-soft: #f0a780;
-  --surface: #ffffff;
-  --surface-tint: #f5f0e6;
-  --line: #e2d9cc;
-  --line-soft: #ede5d6;
+  --accent-glow: rgba(232, 98, 58, 0.15);
+  --surface: #241720;
+  --surface-tint: #1f1418;
+  --line: #3a2a30;
+  --line-soft: #2d1f24;
+  --grid-line: rgba(180, 160, 140, 0.06);
 }
 
 @theme inline {
@@ -40,9 +43,9 @@ body {
 .page-shell {
   min-height: 100vh;
   background-image:
-    linear-gradient(var(--line-soft) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 44px 44px;
   background-position: -1px -1px;
 }
 
@@ -51,10 +54,37 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(253, 248, 239, 0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(26, 15, 22, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
+}
+
+/* === Nav links === */
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+  color: var(--ink-soft);
+  transition: color 0.2s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+.nav-link:hover,
+.nav-link[aria-current="page"] {
+  color: var(--ink);
+}
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  width: 100%;
 }
 
 /* === Layout helpers === */
@@ -101,7 +131,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--accent);
-  background: rgba(212, 80, 42, 0.08);
+  background: var(--accent-glow);
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
 }
@@ -110,4 +140,23 @@ body {
 .section-placeholder {
   display: flex;
   flex-direction: column;
+}
+
+/* === Mobile menu button === */
+.menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.menu-btn:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
 }
