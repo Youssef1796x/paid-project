@@ -1,3 +1,12 @@
+## Base44 Dev Environment
+
+- Run with: `docker compose -f docker-compose.base44.yml up -d`
+- Node 22 base image, source bind-mounted at `/app`, `node_modules` in a named volume.
+- Dev server: `next dev --webpack -H 0.0.0.0 -p 3000` (live reload via watchpack polling).
+- No external services, database, or secrets required — frontend-only project.
+- `next.config.ts` has `allowedDevOrigins` wired to `BASE44_PUBLIC_HOST_SUFFIX` so the preview origin can access dev assets/HMR.
+- Verify: `curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/` should return 200.
+
 # سياق المشروع
 
 قالب موقع ويب لمطعم، قابل لإعادة الاستخدام، Frontend فقط، مخصص للمطاعم المصرية.

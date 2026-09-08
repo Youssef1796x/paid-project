@@ -109,7 +109,7 @@ body {
 }
 
 .section-tint {
-  background: var(--surface-tint);
+  background: rgba(31, 20, 24, 0.5);
 }
 
 .hero-section {
@@ -118,7 +118,7 @@ body {
 
 /* === Footer === */
 .site-footer {
-  background: var(--surface);
+  background: rgba(36, 23, 32, 0.5);
   border-top: 1px solid var(--line);
 }
 
