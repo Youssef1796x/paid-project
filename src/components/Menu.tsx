@@ -5,8 +5,6 @@ import { menuCategories, menuItems } from "@/src/data/menu";
 import CartSummary from "@/src/components/CartSummary";
 import MenuItemCard from "@/src/components/MenuItemCard";
 
-const previewItemIds = new Set(["chicken-hill", "classic-burger"]);
-
 export default function Menu() {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
   const [activeCategoryId, setActiveCategoryId] = useState(menuCategories[0]?.id ?? "");
@@ -27,8 +25,7 @@ export default function Menu() {
   );
 
   const activeCategoryItems = menuItems.filter(
-    (item) =>
-      item.category === activeCategoryId && previewItemIds.has(item.id),
+    (item) => item.category === activeCategoryId,
   );
 
   return (
