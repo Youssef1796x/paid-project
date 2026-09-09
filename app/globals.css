@@ -154,7 +154,9 @@ body {
   background: transparent;
   color: var(--ink);
   cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 @media (min-width: 768px) {
@@ -179,7 +181,9 @@ body {
   color: var(--ink-soft);
   font-size: 0.875rem;
   font-weight: 600;
-  transition: color 0.2s ease, padding-inline 0.2s ease;
+  transition:
+    color 0.2s ease,
+    padding-inline 0.2s ease;
 }
 .mobile-nav-link:hover {
   padding-inline: 0.25rem;
@@ -201,7 +205,7 @@ body {
   height: 48px;
   width: 48px;
   border-radius: 9999px;
-  border: 2px solid #e8623a45;
+  border: 2.5px solid #e8623a45;
   object-fit: cover;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
