@@ -1,6 +1,26 @@
-import { menuCategories } from "@/src/data/menu";
+"use client";
+
+import { useState } from "react";
+import { menuCategories, menuItems } from "@/src/data/menu";
+import MenuItemCard from "@/src/components/MenuItemCard";
 
 export default function Menu() {
+  const [quantities, setQuantities] = useState<Record<string, number>>({});
+
+  const previewCategory = menuCategories[0];
+  const previewItems = menuItems.slice(0, 2);
+
+  const updateQuantity = (itemId: string, change: number) => {
+    setQuantities((current) => {
+      const nextQuantity = Math.max(0, (current[itemId] ?? 0) + change);
+
+      return {
+        ...current,
+        [itemId]: nextQuantity,
+      };
+    });
+  };
+
   return (
     <section
       id="menu"
@@ -21,28 +41,21 @@ export default function Menu() {
         </div>
 
         <div className="mt-8 flex gap-2 overflow-x-auto pb-2">
-          {menuCategories.map((category) => (
-            <button
-              key={category.id}
-              type="button"
-              className="shrink-0 rounded-full border border-(--line) bg-(--surface) px-4 py-2 text-sm font-semibold text-(--ink-soft)"
-            >
-              {category.name}
-            </button>
-          ))}
+          <span className="shrink-0 rounded-full border border-(--accent) bg-(--accent-glow) px-4 py-2 text-sm font-semibold text-(--ink)">
+            {previewCategory.name}
+          </span>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[1, 2, 3, 4].map((item) => (
-            <div
-              key={item}
-              className="rounded-2xl border border-(--line) bg-(--surface) p-4"
-            >
-              <div className="aspect-4/3 rounded-xl bg-(--line-soft)" />
-              <div className="mt-4 h-4 w-2/3 rounded bg-(--line)" />
-              <div className="mt-3 h-3 w-full rounded bg-(--line-soft)" />
-              <div className="mt-2 h-3 w-4/5 rounded bg-(--line-soft)" />
-            </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {previewItems.map((item) => (
+            <MenuItemCard
+              key={item.id}
+              item={item}
+              quantity={quantities[item.id] ?? 0}
+              onAdd={() => updateQuantity(item.id, 1)}
+              onDecrease={() => updateQuantity(item.id, -1)}
+              onIncrease={() => updateQuantity(item.id, 1)}
+            />
           ))}
         </div>
       </div>
