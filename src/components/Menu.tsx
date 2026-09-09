@@ -23,9 +23,12 @@ const mixedMenuItems = Array.from({ length: maxItemsInCategory }, (_, index) =>
     .filter((item): item is (typeof menuItems)[number] => Boolean(item)),
 ).flat();
 
+const initialVisibleCount = 6;
+
 export default function Menu() {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
   const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null);
+  const [showAllItems, setShowAllItems] = useState(false);
 
   const updateQuantity = (itemId: string, change: number) => {
     setQuantities((current) => {
@@ -42,9 +45,19 @@ export default function Menu() {
     (category) => category.id === activeCategoryId,
   );
 
-  const visibleItems = activeCategoryId
+  const filteredItems = activeCategoryId
     ? menuItems.filter((item) => item.category === activeCategoryId)
     : mixedMenuItems;
+
+  const hasMoreItems = !activeCategoryId && filteredItems.length > initialVisibleCount;
+  const visibleItems = showAllItems || !hasMoreItems
+    ? filteredItems
+    : filteredItems.slice(0, initialVisibleCount);
+
+  const handleCategoryChange = (categoryId: string) => {
+    setShowAllItems(false);
+    setActiveCategoryId((current) => (current === categoryId ? null : categoryId));
+  };
 
   return (
     <section
@@ -79,11 +92,7 @@ export default function Menu() {
                 type="button"
                 role="tab"
                 aria-selected={isActive}
-                onClick={() =>
-                  setActiveCategoryId((current) =>
-                    current === category.id ? null : category.id,
-                  )
-                }
+                onClick={() => handleCategoryChange(category.id)}
                 className={`shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent) ${
                   isActive
                     ? "border-(--accent) bg-(--accent) text-foreground"
@@ -113,6 +122,19 @@ export default function Menu() {
               />
             ))}
           </div>
+
+          {hasMoreItems ? (
+            <div className="mt-6 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setShowAllItems((current) => !current)}
+                aria-expanded={showAllItems}
+                className="rounded-full border border-(--line) bg-(--surface) px-5 py-2.5 text-sm font-semibold text-(--ink) transition-colors hover:border-(--accent) hover:text-(--accent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+              >
+                {showAllItems ? "عرض أقل" : "عرض المزيد"}
+              </button>
+            </div>
+          ) : null}
         </div>
       </div>
 
