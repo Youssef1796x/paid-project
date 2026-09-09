@@ -11,6 +11,26 @@ const cairo = Cairo({
 export const metadata: Metadata = {
   title: restaurantConfig.name,
   description: restaurantConfig.description,
+  openGraph: {
+    title: restaurantConfig.name,
+    description: restaurantConfig.description,
+    type: "website",
+    locale: "ar_EG",
+    images: [
+      {
+        url: restaurantConfig.banner,
+        width: 960,
+        height: 400,
+        alt: restaurantConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: restaurantConfig.name,
+    description: restaurantConfig.description,
+    images: [restaurantConfig.banner],
+  },
 };
 
 export default function RootLayout({
