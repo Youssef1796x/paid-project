@@ -1,17 +1,17 @@
-import { Star } from "lucide-react";
+import { Share2, Star } from "lucide-react";
 
 const reviews = [
   {
     name: "كريم",
     username: "@demo_kareem",
     initial: "ك",
-    text: "جربت الأكل وكانت التجربة حلوة جدًا. الطعم ممتاز والكمية كويسة، أكيد هكرر الطلب تاني.",
+    text: "جربت الأكل وكانت التجربة حلوة جدًا والطعم ممتاز والكمية كويسة أكيد هكرر الطلب تاني",
   },
   {
     name: "سارة",
     username: "@demo_sara",
     initial: "س",
-    text: "الأكل وصل مرتب وساخن وطعمه كان ممتاز، وكمان الطلب كان سهل جدًا. تجربة لطيفة فعلًا.",
+    text: "الأكل وصل مرتب وساخن وطعمه كان ممتاز والطلب كان سهل جدًا تجربة لطيفة فعلًا",
   },
 ];
 
@@ -31,7 +31,7 @@ export default function Reviews() {
           </h2>
 
           <p className="mt-4 max-w-2xl text-sm leading-7 text-(--ink-soft) sm:text-base">
-            نماذج تجريبية من آراء العملاء بشكل قريب من تقييمات السوشيال ميديا.
+            نماذج من آراء العملاء بشكل قريب من السوشيال ميديا
           </p>
         </div>
 
@@ -60,12 +60,11 @@ export default function Reviews() {
                   </div>
                 </div>
 
-                <span
-                  className="mt-1 shrink-0 text-sm font-bold text-(--ink-muted)"
+                <Share2
+                  size={18}
+                  className="mt-1 shrink-0 text-(--ink-muted)"
                   aria-hidden="true"
-                >
-                  @
-                </span>
+                />
               </div>
 
               <div
@@ -78,7 +77,7 @@ export default function Reviews() {
               </div>
 
               <p className="mt-3 text-sm leading-7 text-(--ink-soft)">
-                “{review.text}”
+                {review.text}
               </p>
             </article>
           ))}
