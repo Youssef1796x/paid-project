@@ -112,6 +112,15 @@ body {
   border-bottom: 1px solid var(--line);
 }
 
+/* === Menu category scroller === */
+.menu-category-tabs {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.menu-category-tabs::-webkit-scrollbar {
+  display: none;
+}
+
 /* === Footer === */
 .site-footer {
   background: rgba(36, 23, 32, 0.5);
