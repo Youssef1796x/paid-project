@@ -5,17 +5,13 @@ import { menuCategories, menuItems } from "@/src/data/menu";
 import CartSummary from "@/src/components/CartSummary";
 import MenuItemCard from "@/src/components/MenuItemCard";
 
-const previewItemIds = new Set([
-  "chicken-hill",
-  "classic-burger",
-  "golden-strips",
-  "king-smoked",
-  "nutella-boom",
-]);
+const mixedMenuItems = menuCategories.flatMap((category) =>
+  menuItems.filter((item) => item.category === category.id),
+);
 
 export default function Menu() {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
-  const [activeCategoryId, setActiveCategoryId] = useState(menuCategories[0]?.id ?? "");
+  const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null);
 
   const updateQuantity = (itemId: string, change: number) => {
     setQuantities((current) => {
@@ -32,10 +28,9 @@ export default function Menu() {
     (category) => category.id === activeCategoryId,
   );
 
-  const activeCategoryItems = menuItems.filter(
-    (item) =>
-      item.category === activeCategoryId && previewItemIds.has(item.id),
-  );
+  const visibleItems = activeCategoryId
+    ? menuItems.filter((item) => item.category === activeCategoryId)
+    : mixedMenuItems;
 
   return (
     <section
@@ -83,30 +78,19 @@ export default function Menu() {
           })}
         </div>
 
-        <div className="mt-8" role="tabpanel" aria-label={activeCategory?.name}>
-          {activeCategoryItems.length > 0 ? (
-            <div className="grid gap-4">
-              {activeCategoryItems.map((item) => (
-                <MenuItemCard
-                  key={item.id}
-                  item={item}
-                  quantity={quantities[item.id] ?? 0}
-                  onAdd={() => updateQuantity(item.id, 1)}
-                  onDecrease={() => updateQuantity(item.id, -1)}
-                  onIncrease={() => updateQuantity(item.id, 1)}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="rounded-2xl border border-dashed border-(--line) bg-(--surface-tint) px-4 py-10 text-center">
-              <h3 className="text-base font-bold text-(--ink)">
-                {activeCategory?.name}
-              </h3>
-              <p className="mt-2 text-sm text-(--ink-soft)">
-                القسم موجود، والأصناف هتتضاف هنا.
-              </p>
-            </div>
-          )}
+        <div className="mt-8" role="tabpanel" aria-label={activeCategory?.name ?? "كل الأصناف"}>
+          <div className="grid gap-4">
+            {visibleItems.map((item) => (
+              <MenuItemCard
+                key={item.id}
+                item={item}
+                quantity={quantities[item.id] ?? 0}
+                onAdd={() => updateQuantity(item.id, 1)}
+                onDecrease={() => updateQuantity(item.id, -1)}
+                onIncrease={() => updateQuantity(item.id, 1)}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
