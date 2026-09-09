@@ -15,7 +15,8 @@ const mixedMenuItems = Array.from({ length: maxItemsInCategory }, (_, index) =>
   menuCategories
     .map((category) =>
       menuItems.find(
-        (item) => item.category === category.id &&
+        (item) =>
+          item.category === category.id &&
           menuItems.filter((candidate) => candidate.category === category.id).indexOf(item) === index,
       ),
     )
@@ -65,7 +66,7 @@ export default function Menu() {
         </div>
 
         <div
-          className="mt-8 flex gap-2 overflow-x-auto pb-2"
+          className="menu-category-tabs mt-8 flex gap-2 overflow-x-auto pb-2"
           role="tablist"
           aria-label="أقسام المنيو"
         >
@@ -78,7 +79,11 @@ export default function Menu() {
                 type="button"
                 role="tab"
                 aria-selected={isActive}
-                onClick={() => setActiveCategoryId(category.id)}
+                onClick={() =>
+                  setActiveCategoryId((current) =>
+                    current === category.id ? null : category.id,
+                  )
+                }
                 className={`shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent) ${
                   isActive
                     ? "border-(--accent) bg-(--accent) text-(--foreground)"
