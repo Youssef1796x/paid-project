@@ -29,7 +29,8 @@ export default function MenuItemCard({
           src={item.image}
           alt={item.name}
           fill
-          sizes="112px"
+          sizes="(min-width: 640px) 112px, 96px"
+          quality={60}
           className="object-cover"
         />
 
@@ -125,6 +126,7 @@ export default function MenuItemCard({
                 alt={item.name}
                 fill
                 sizes="(min-width: 768px) 672px, calc(100vw - 32px)"
+                quality={65}
                 className="object-contain"
               />
             </div>
