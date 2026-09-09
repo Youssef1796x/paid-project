@@ -36,12 +36,12 @@ export default function Location() {
                         {restaurantConfig.location.address}
                       </p>
                       <a
-                        href="https://www.google.com/maps/search/?api=1&query=Nasr+City%2C+Cairo"
+                        href="https://maps.app.goo.gl/8BxfrQCY8D8EwNABA"
                         target="_blank"
                         rel="noreferrer"
                         className="mt-2 inline-block text-xs font-bold text-(--accent) hover:underline"
                       >
-                        شوف المكان على جوجل مابس
+                        شوف المكان على الخريطة
                       </a>
                     </div>
                   </div>

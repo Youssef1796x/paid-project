@@ -44,9 +44,9 @@ export const restaurantConfig: RestaurantConfig = {
   location: {
     heading: "مستنيينك عندنا",
     body: "تقدر تزورنا في الفرع أو تتواصل معانا وتطلب بسهولة.",
-    address: "العنوان هنا",
+    address: "المحلة الكبرى",
     hours: "يومياً من 10ص لـ 10م",
-    phone: "رقم المطعم",
+    phone: "01005069811",
   },
   footer: {
     name: "K & Runch",
