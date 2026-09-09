@@ -23,33 +23,31 @@ export default function MenuItemCard({
   const [isImageOpen, setIsImageOpen] = useState(false);
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-(--line) bg-(--surface)">
-      <div className="relative flex h-24 items-center justify-center overflow-hidden bg-(--line-soft) p-2 sm:h-28">
+    <article className="flex overflow-hidden rounded-2xl border border-(--line) bg-(--surface)">
+      <div className="relative h-28 w-28 shrink-0 overflow-hidden bg-(--line-soft) sm:h-32 sm:w-32">
         <Image
           src={item.image}
           alt={item.name}
-          width={420}
-          height={315}
-          sizes="(min-width: 640px) 300px, 100vw"
-          className="h-full w-full object-contain"
+          fill
+          sizes="128px"
+          className="object-contain"
         />
 
         <button
           type="button"
           onClick={() => setIsImageOpen(true)}
           aria-label={`تكبير صورة ${item.name}`}
-          className="absolute bottom-2 start-2 inline-flex min-h-10 items-center gap-1.5 rounded-lg border border-white/20 bg-black/65 px-3 py-2 text-xs font-bold text-white backdrop-blur-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+          className="absolute bottom-2 start-2 inline-flex size-9 items-center justify-center rounded-lg border border-white/20 bg-black/65 text-white shadow-sm backdrop-blur-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
         >
           <Maximize2 size={15} aria-hidden="true" />
-          كبّر الصورة
         </button>
       </div>
 
-      <div className="p-4">
-        <div className="flex items-start justify-between gap-3">
+      <div className="min-w-0 flex-1 p-3 sm:p-4">
+        <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">
             <h3 className="text-base font-bold text-(--ink)">{item.name}</h3>
-            <p className="mt-2 text-sm leading-6 text-(--ink-soft)">
+            <p className="mt-1.5 text-sm leading-6 text-(--ink-soft)">
               {item.description}
             </p>
           </div>
@@ -59,7 +57,7 @@ export default function MenuItemCard({
           </span>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-3">
           {!item.available ? (
             <span className="text-sm font-semibold text-(--ink-muted)">
               غير متاح حاليًا
@@ -68,22 +66,22 @@ export default function MenuItemCard({
             <button
               type="button"
               onClick={onAdd}
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-(--accent) px-4 py-2 text-sm font-bold text-(--foreground) transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+              className="inline-flex min-h-10 items-center justify-center rounded-xl bg-(--accent) px-4 py-2 text-sm font-bold text-(--foreground) transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
             >
               عايز ده +
             </button>
           ) : (
-            <div className="flex items-center justify-between rounded-xl border border-(--line) bg-(--background) p-1">
+            <div className="flex w-fit items-center rounded-xl border border-(--line) bg-(--background) p-1">
               <button
                 type="button"
                 aria-label={`زود ${item.name}`}
                 onClick={onIncrease}
-                className="flex size-10 items-center justify-center rounded-lg text-lg font-bold text-(--ink) transition-colors hover:bg-(--accent-glow) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+                className="flex size-9 items-center justify-center rounded-lg text-lg font-bold text-(--ink) transition-colors hover:bg-(--accent-glow) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
               >
                 +
               </button>
 
-              <span className="min-w-10 text-center text-sm font-bold text-(--ink)">
+              <span className="min-w-9 text-center text-sm font-bold text-(--ink)">
                 {quantity}
               </span>
 
@@ -91,7 +89,7 @@ export default function MenuItemCard({
                 type="button"
                 aria-label={`قلل ${item.name}`}
                 onClick={onDecrease}
-                className="flex size-10 items-center justify-center rounded-lg text-lg font-bold text-(--ink) transition-colors hover:bg-(--accent-glow) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+                className="flex size-9 items-center justify-center rounded-lg text-lg font-bold text-(--ink) transition-colors hover:bg-(--accent-glow) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
               >
                 −
               </button>
