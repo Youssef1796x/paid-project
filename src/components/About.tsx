@@ -2,7 +2,7 @@ export default function About() {
   return (
     <section
       id="about"
-      aria-label="من نحن"
+      aria-label="عن المطعم"
       className="section-shell scroll-mt-18"
     >
       <div className="content-container py-16 sm:py-20 lg:py-24">

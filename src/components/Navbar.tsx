@@ -43,7 +43,7 @@ export default function Navbar() {
           aria-label={isMenuOpen ? "إغلاق القائمة" : "فتح القائمة"}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
-          className="menu-btn md:hidden"
+          className="menu-btn ms-auto md:hidden"
           onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
         >
           {isMenuOpen ? (

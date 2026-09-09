@@ -2,9 +2,9 @@
 
 :root {
   --background: #1a0f16;
-  --foreground: #f5ede4;
+  --foreground: #e8ddd2;
 
-  --ink: #f5ede4;
+  --ink: #e8ddd2;
   --ink-soft: #a89a8c;
   --ink-muted: #7a6d62;
   --accent: #e8623a;
@@ -45,7 +45,7 @@ body {
   background-image:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 44px 44px;
+  background-size: 64px 64px;
   background-position: -1px -1px;
 }
 
@@ -105,7 +105,7 @@ body {
 /* === Sections === */
 .section-shell {
   scroll-margin-top: 72px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--line) ;
 }
 
 .section-tint {

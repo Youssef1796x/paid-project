@@ -22,7 +22,7 @@ export default function Hero() {
 
             <a
               href="#menu"
-              className="mt-6 inline-flex items-center justify-center rounded-xl bg-(--accent) px-5 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90"
+              className="mt-6 inline-flex items-center justify-center rounded-xl bg-(--accent) px-5 py-3 text-sm font-bold text-#e8ddd2 transition-opacity hover:opacity-90"
             >
               شوف المنيو
             </a>
