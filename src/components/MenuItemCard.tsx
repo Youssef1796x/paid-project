@@ -30,7 +30,7 @@ export default function MenuItemCard({
           alt={item.name}
           fill
           sizes="112px"
-          className="object-contain p-1.5"
+          className="object-cover"
         />
 
         <button
@@ -51,48 +51,50 @@ export default function MenuItemCard({
           </p>
         </div>
 
-        <div className="mt-2.5 flex items-center justify-between gap-3">
-          <span className="text-base font-extrabold leading-6 text-(--accent)">
+        <div className="mt-2.5 grid grid-cols-[minmax(0,1fr)_96px] items-center gap-3 sm:grid-cols-[minmax(0,1fr)_104px]">
+          <span className="min-w-0 text-base font-extrabold leading-6 text-(--accent)">
             {item.price} جنيه
           </span>
 
-          {!item.available ? (
-            <span className="text-sm font-semibold text-(--ink-muted)">
-              غير متاح حاليًا
-            </span>
-          ) : quantity === 0 ? (
-            <button
-              type="button"
-              onClick={onAdd}
-              className="inline-flex min-h-10 shrink-0 items-center justify-center rounded-lg bg-(--accent) px-4 py-2 text-sm font-bold text-(--foreground) transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
-            >
-              عايز ده +
-            </button>
-          ) : (
-            <div className="flex shrink-0 items-center rounded-lg border border-(--line) bg-(--background) p-1">
-              <button
-                type="button"
-                aria-label={`زود ${item.name}`}
-                onClick={onIncrease}
-                className="flex size-9 items-center justify-center rounded-md text-lg font-bold text-(--ink) transition-colors hover:bg-(--accent-glow) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
-              >
-                +
-              </button>
-
-              <span className="min-w-9 text-center text-sm font-bold text-(--ink)">
-                {quantity}
+          <div className="w-full">
+            {!item.available ? (
+              <span className="block text-center text-sm font-semibold text-(--ink-muted)">
+                غير متاح حاليًا
               </span>
-
+            ) : quantity === 0 ? (
               <button
                 type="button"
-                aria-label={`قلل ${item.name}`}
-                onClick={onDecrease}
-                className="flex size-9 items-center justify-center rounded-md text-lg font-bold text-(--ink) transition-colors hover:bg-(--accent-glow) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+                onClick={onAdd}
+                className="inline-flex min-h-10 w-full items-center justify-center rounded-lg bg-(--accent) px-3 py-2 text-sm font-bold text-(--foreground) transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
               >
-                −
+                عايز ده +
               </button>
-            </div>
-          )}
+            ) : (
+              <div className="flex h-10 w-full items-center rounded-lg border border-(--line) bg-(--background) p-1">
+                <button
+                  type="button"
+                  aria-label={`زود ${item.name}`}
+                  onClick={onIncrease}
+                  className="flex size-8 shrink-0 items-center justify-center rounded-md text-lg font-bold text-(--ink) transition-colors hover:bg-(--accent-glow) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+                >
+                  +
+                </button>
+
+                <span className="min-w-0 flex-1 text-center text-sm font-bold text-(--ink)">
+                  {quantity}
+                </span>
+
+                <button
+                  type="button"
+                  aria-label={`قلل ${item.name}`}
+                  onClick={onDecrease}
+                  className="flex size-8 shrink-0 items-center justify-center rounded-md text-lg font-bold text-(--ink) transition-colors hover:bg-(--accent-glow) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+                >
+                  −
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
