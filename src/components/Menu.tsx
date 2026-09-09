@@ -86,7 +86,7 @@ export default function Menu() {
                 }
                 className={`shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent) ${
                   isActive
-                    ? "border-(--accent) bg-(--accent) text-(--foreground)"
+                    ? "border-(--accent) bg-(--accent) text-foreground"
                     : "border-(--line) bg-(--surface) text-(--ink-soft) hover:border-(--accent) hover:text-(--ink)"
                 }`}
               >

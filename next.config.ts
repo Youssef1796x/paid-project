@@ -4,6 +4,10 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: [
     "3000-" + (process.env.BASE44_PUBLIC_HOST_SUFFIX ?? ""),
   ],
+
+  images: {
+    qualities: [60, 65, 75],
+  },
 };
 
 export default nextConfig;

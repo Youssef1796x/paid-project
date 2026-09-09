@@ -23,7 +23,7 @@ export default function Hero() {
 
             <a
               href="#menu"
-              className="mt-6 inline-flex items-center justify-center rounded-xl bg-(--accent) px-5 py-3 text-sm font-bold text-(--foreground) transition-opacity hover:opacity-90"
+              className="mt-6 inline-flex items-center justify-center rounded-xl bg-(--accent) px-5 py-3 text-sm font-bold text-foreground transition-opacity hover:opacity-90"
             >
               {restaurantConfig.hero.cta}
             </a>

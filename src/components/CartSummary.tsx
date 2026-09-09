@@ -51,7 +51,7 @@ export default function CartSummary({
 
       {isOpen && (
         <div
-          className="fixed inset-0 z-[90] bg-black/60 p-4"
+          className="fixed inset-0 z-90 bg-black/60 p-4"
           role="dialog"
           aria-modal="true"
           aria-label="السلة"

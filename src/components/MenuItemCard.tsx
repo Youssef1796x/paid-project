@@ -38,7 +38,7 @@ export default function MenuItemCard({
           type="button"
           onClick={() => setIsImageOpen(true)}
           aria-label={`تكبير صورة ${item.name}`}
-          className="absolute bottom-1.5 start-1.5 inline-flex size-8 items-center justify-center rounded-lg border border-white/15 bg-black/65 text-white shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+          className="absolute bottom-1.5 inset-s-1.5 inline-flex size-8 items-center justify-center rounded-lg border border-white/15 bg-black/65 text-white shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
         >
           <Maximize2 size={14} aria-hidden="true" />
         </button>
@@ -66,12 +66,12 @@ export default function MenuItemCard({
               <button
                 type="button"
                 onClick={onAdd}
-                className="inline-flex min-h-10 w-full items-center justify-center rounded-lg bg-(--accent) px-3 py-2 text-sm font-bold text-(--foreground) transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+                className="inline-flex min-h-10 w-full items-center justify-center rounded-lg bg-(--accent) px-3 py-2 text-sm font-bold text-foreground transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
               >
                 عايز ده +
               </button>
             ) : (
-              <div className="flex h-10 w-full items-center rounded-lg border border-(--line) bg-(--background) p-1">
+              <div className="flex h-10 w-full items-center rounded-lg border border-(--line) bg-background p-1">
                 <button
                   type="button"
                   aria-label={`زود ${item.name}`}
@@ -101,7 +101,7 @@ export default function MenuItemCard({
 
       {isImageOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 p-4"
           role="dialog"
           aria-modal="true"
           aria-label={`صورة ${item.name}`}
@@ -115,12 +115,12 @@ export default function MenuItemCard({
               type="button"
               onClick={() => setIsImageOpen(false)}
               aria-label="إغلاق الصورة"
-              className="absolute end-3 top-3 z-10 inline-flex size-10 items-center justify-center rounded-full bg-black/70 text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+              className="absolute inset-e-3 top-3 z-10 inline-flex size-10 items-center justify-center rounded-full bg-black/70 text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
             >
               <X size={18} aria-hidden="true" />
             </button>
 
-            <div className="relative h-[70vh] max-h-[700px] w-full">
+            <div className="relative h-[70vh] max-h-175 w-full">
               <Image
                 src={item.image}
                 alt={item.name}
