@@ -1,3 +1,5 @@
+import { restaurantConfig } from "@/src/data/restaurant";
+
 export default function About() {
   return (
     <section
@@ -10,12 +12,11 @@ export default function About() {
           <span className="eyebrow">عن المطعم</span>
 
           <h2 className="mt-5 text-2xl font-bold text-(--ink) sm:text-3xl">
-            أكل يفرحك من أول لقمة
+            {restaurantConfig.about.heading}
           </h2>
 
           <p className="mt-4 text-sm leading-7 text-(--ink-soft) sm:text-base">
-            في K & Runch بنحب الأكل اللي يتعمل بحب ويتاكل وهو لسه سخن
-            وهدفنا نقدم أكل طعمه جامد، بسيط، ويخليك ترجع تاني.
+            {restaurantConfig.about.body}
           </p>
         </div>
       </div>

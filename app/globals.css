@@ -105,11 +105,7 @@ body {
 /* === Sections === */
 .section-shell {
   scroll-margin-top: 72px;
-  border-bottom: 1px solid var(--line) ;
-}
-
-.section-tint {
-  background: rgba(31, 20, 24, 0.5);
+  border-bottom: 1px solid var(--line);
 }
 
 .hero-section {
@@ -132,12 +128,6 @@ body {
   background: var(--accent-glow);
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
-}
-
-/* === Placeholder === */
-.section-placeholder {
-  display: flex;
-  flex-direction: column;
 }
 
 /* === Mobile menu button === */

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
+import { restaurantConfig } from "@/src/data/restaurant";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -8,11 +9,15 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "K & Runch Website",
-  description: "مطعم مصري جامد | ممكن تطلب اورد من الواتساب.",
+  title: restaurantConfig.name,
+  description: restaurantConfig.description,
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="ar"

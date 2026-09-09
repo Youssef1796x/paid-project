@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { restaurantConfig } from "@/src/data/restaurant";
 
 const navLinks = [
   { id: "hero", label: "الرئيسية" },
@@ -22,8 +23,8 @@ export default function Navbar() {
 
         <a href="#hero" aria-label="الرئيسية" className="logo-link">
           <Image
-            src="/images/profile/logo.jpg"
-            alt="شعار المطعم"
+            src={restaurantConfig.logo}
+            alt={`شعار ${restaurantConfig.name}`}
             width={64}
             height={64}
             className="logo-img"

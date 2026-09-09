@@ -1,6 +1,6 @@
-export default function Menu() {
-  const categories = ["برجر", "ساندوتشات", "كريب حادق", "كريب حلو"];
+import { menuCategories } from "@/src/data/menu";
 
+export default function Menu() {
   return (
     <section
       id="menu"
@@ -21,13 +21,13 @@ export default function Menu() {
         </div>
 
         <div className="mt-8 flex gap-2 overflow-x-auto pb-2">
-          {categories.map((category) => (
+          {menuCategories.map((category) => (
             <button
-              key={category}
+              key={category.id}
               type="button"
               className="shrink-0 rounded-full border border-(--line) bg-(--surface) px-4 py-2 text-sm font-semibold text-(--ink-soft)"
             >
-              {category}
+              {category.name}
             </button>
           ))}
         </div>

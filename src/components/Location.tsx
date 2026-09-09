@@ -1,3 +1,5 @@
+import { restaurantConfig } from "@/src/data/restaurant";
+
 export default function Location() {
   return (
     <section
@@ -10,32 +12,32 @@ export default function Location() {
           <span className="eyebrow">موقعنا</span>
 
           <h2 className="mt-5 text-2xl font-bold text-(--ink) sm:text-3xl">
-            مستنيينك عندنا
+            {restaurantConfig.location.heading}
           </h2>
 
           <p className="mt-4 text-sm leading-7 text-(--ink-soft) sm:text-base">
-            تقدر تزورنا في الفرع أو تتواصل معانا وتطلب بسهولة.
+            {restaurantConfig.location.body}
           </p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             <div className="rounded-2xl border border-(--line) bg-(--surface) p-4">
               <p className="text-xs text-(--ink-muted)">العنوان</p>
               <p className="mt-2 text-sm font-semibold text-(--ink)">
-                العنوان هنا
+                {restaurantConfig.location.address}
               </p>
             </div>
 
             <div className="rounded-2xl border border-(--line) bg-(--surface) p-4">
               <p className="text-xs text-(--ink-muted)">مواعيدنا</p>
               <p className="mt-2 text-sm font-semibold text-(--ink)">
-                يومياً من 10ص لـ 10م
+                {restaurantConfig.location.hours}
               </p>
             </div>
 
             <div className="rounded-2xl border border-(--line) bg-(--surface) p-4">
               <p className="text-xs text-(--ink-muted)">التواصل</p>
               <p className="mt-2 text-sm font-semibold text-(--ink)">
-                رقم المطعم
+                {restaurantConfig.location.phone}
               </p>
             </div>
           </div>
