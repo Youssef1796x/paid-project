@@ -25,6 +25,7 @@ Navbar
 → Hero
 → Menu
 → About
+→ Reviews
 → Location / Contact
 → Footer
 
@@ -138,9 +139,9 @@ Short and supportive. It should not delay access to the Menu.
 
 ### Reviews
 
-Not shown in the current client-facing version because no verified real review data is available.
+The demo version may use clearly identifiable placeholder review data to demonstrate the layout and interaction.
 
-When real review data is available, the section may be added using only that real data.
+Before final client launch, placeholder reviews must be replaced with real customer review data supplied or approved by the restaurant.
 
 ### Location / Contact
 
