@@ -1,4 +1,4 @@
-import { Instagram, Star } from "lucide-react";
+import { Star } from "lucide-react";
 
 const reviews = [
   {
@@ -60,11 +60,12 @@ export default function Reviews() {
                   </div>
                 </div>
 
-                <Instagram
-                  size={18}
-                  className="mt-1 shrink-0 text-(--ink-muted)"
+                <span
+                  className="mt-1 shrink-0 text-sm font-bold text-(--ink-muted)"
                   aria-hidden="true"
-                />
+                >
+                  @
+                </span>
               </div>
 
               <div
