@@ -5,9 +5,22 @@ import { menuCategories, menuItems } from "@/src/data/menu";
 import CartSummary from "@/src/components/CartSummary";
 import MenuItemCard from "@/src/components/MenuItemCard";
 
-const mixedMenuItems = menuCategories.flatMap((category) =>
-  menuItems.filter((item) => item.category === category.id),
+const maxItemsInCategory = Math.max(
+  ...menuCategories.map(
+    (category) => menuItems.filter((item) => item.category === category.id).length,
+  ),
 );
+
+const mixedMenuItems = Array.from({ length: maxItemsInCategory }, (_, index) =>
+  menuCategories
+    .map((category) =>
+      menuItems.find(
+        (item) => item.category === category.id &&
+          menuItems.filter((candidate) => candidate.category === category.id).indexOf(item) === index,
+      ),
+    )
+    .filter((item): item is (typeof menuItems)[number] => Boolean(item)),
+).flat();
 
 export default function Menu() {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
@@ -78,7 +91,11 @@ export default function Menu() {
           })}
         </div>
 
-        <div className="mt-8" role="tabpanel" aria-label={activeCategory?.name ?? "كل الأصناف"}>
+        <div
+          className="mt-8"
+          role="tabpanel"
+          aria-label={activeCategory?.name ?? "كل الأصناف"}
+        >
           <div className="grid gap-4">
             {visibleItems.map((item) => (
               <MenuItemCard
