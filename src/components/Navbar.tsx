@@ -6,11 +6,11 @@ import { Menu, X } from "lucide-react";
 import { restaurantConfig } from "@/src/data/restaurant";
 
 const navLinks = [
-  { id: "hero", label: "الرئيسية" },
+  { id: "hero", label: "K & Runch" },
   { id: "menu", label: "المنيو" },
-  { id: "about", label: "من نحن" },
-  { id: "reviews", label: "آراء العملاء" },
-  { id: "location", label: "الموقع والتواصل" },
+  { id: "about", label: "عن المطعم" },
+  { id: "reviews", label: "آراء الناس" },
+  { id: "location", label: "موقعنا" },
 ];
 
 export default function Navbar() {
