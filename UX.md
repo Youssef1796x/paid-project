@@ -25,7 +25,6 @@ Navbar
 → Hero
 → Menu
 → About
-→ Reviews (only when real data exists)
 → Location / Contact
 → Footer
 
@@ -139,7 +138,9 @@ Short and supportive. It should not delay access to the Menu.
 
 ### Reviews
 
-Conditional. Show only when real review data exists. Never invent reviews.
+Not shown in the current client-facing version because no verified real review data is available.
+
+When real review data is available, the section may be added using only that real data.
 
 ### Location / Contact
 
@@ -169,7 +170,6 @@ Use the available space to improve:
 
 - menu presentation
 - cart visibility
-- review/checkout layout
 - overall breathing room
 
 Do not simply scale the mobile layout up.
