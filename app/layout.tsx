@@ -14,6 +14,8 @@ const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_URL}`
     : "http://localhost:3000";
 
+const shareImageUrl = new URL(restaurantConfig.banner, siteUrl).toString();
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: restaurantConfig.name,
@@ -21,11 +23,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: restaurantConfig.name,
     description: restaurantConfig.description,
+    url: siteUrl,
     type: "website",
     locale: "ar_EG",
     images: [
       {
-        url: restaurantConfig.banner,
+        url: shareImageUrl,
         width: 960,
         height: 400,
         alt: restaurantConfig.name,
@@ -36,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: restaurantConfig.name,
     description: restaurantConfig.description,
-    images: [restaurantConfig.banner],
+    images: [shareImageUrl],
   },
 };
 
