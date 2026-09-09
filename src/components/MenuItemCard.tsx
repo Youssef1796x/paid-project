@@ -24,13 +24,14 @@ export default function MenuItemCard({
 
   return (
     <article className="overflow-hidden rounded-2xl border border-(--line) bg-(--surface)">
-      <div className="relative h-32 overflow-hidden bg-(--line-soft) sm:h-40">
+      <div className="relative flex h-24 items-center justify-center overflow-hidden bg-(--line-soft) p-2 sm:h-28">
         <Image
           src={item.image}
           alt={item.name}
-          fill
-          sizes="(min-width: 640px) 50vw, 100vw"
-          className="object-cover"
+          width={420}
+          height={315}
+          sizes="(min-width: 640px) 300px, 100vw"
+          className="h-full w-full object-contain"
         />
 
         <button
