@@ -150,6 +150,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "el-haty-mix",
     category: "meat-cheese-crepe",
@@ -177,6 +178,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "titanic",
     category: "seafood-crepe",
@@ -195,6 +197,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "nutella-bomb",
     category: "sweet-crepe",
@@ -222,6 +225,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "golden-strips",
     category: "chicken-sandwiches",
@@ -306,6 +310,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "chicken-hill",
     category: "chicken-burger",
@@ -342,6 +347,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "cheesy-lazy",
     category: "beef-burger",
@@ -387,6 +393,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "smash-town",
     category: "smash-burger",
@@ -423,6 +430,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "hala-bel-khamees",
     category: "seafood-meals",
@@ -453,6 +461,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "bahreya",
     category: "seafood-sandwiches",
@@ -530,6 +539,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "negresco-lava",
     category: "milano-pasta",
@@ -652,6 +662,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "cheetos-potato",
     category: "fries-zone",
@@ -725,6 +736,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "kebda",
     category: "al-harash",
@@ -781,6 +793,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "kings-meal",
     category: "al-harash-meals",
@@ -809,6 +822,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "pepsi-cans",
     category: "drinks",
@@ -899,6 +913,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "kofta-sogoq-meal",
     category: "meat-chicken-meals",
