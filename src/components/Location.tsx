@@ -94,7 +94,7 @@ export default function Location() {
                       </a>
 
                       <a
-                        href={`https://wa.me/20${restaurantConfig.location.whatsapp}`}
+                        href={`https://wa.me/20${restaurantConfig.location.whatsapp.slice(1)}`}
                         target="_blank"
                         rel="noreferrer"
                         className="min-w-0 text-sm font-semibold text-(--ink) hover:text-(--accent)"
