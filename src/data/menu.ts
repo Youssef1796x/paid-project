@@ -521,7 +521,8 @@ export const menuItems: MenuItem[] = [
     id: "gaddorah",
     category: "seafood-sandwiches",
     name: "قدورة",
-    description: "ميكس سي فود مجهز بطريقة خاصة وحصرية تذوقها لأول مرة",
+    description:
+      "ميكس سي فود مجهز بطريقة خاصة وحصرية تذوقها لأول مرة",
     priceOptions: [
       { label: "M", price: 150 },
       { label: "L", price: 210 },
