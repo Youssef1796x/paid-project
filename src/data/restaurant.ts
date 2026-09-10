@@ -19,6 +19,7 @@ export type RestaurantConfig = {
     address: string;
     hours: string;
     phone: string;
+    whatsapp: string;
   };
   footer: {
     name: string;
@@ -47,6 +48,7 @@ export const restaurantConfig: RestaurantConfig = {
     address: "المحلة الكبرى",
     hours: "يومياً من 10ص لـ 10م",
     phone: "01005069811",
+    whatsapp: "01208852130",
   },
   footer: {
     name: "K & Runch",

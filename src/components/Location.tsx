@@ -1,4 +1,4 @@
-import { Clock3, MapPin, Phone } from "lucide-react";
+import { Clock3, MapPin, Phone, MessageCircle, Contact } from "lucide-react";
 import { restaurantConfig } from "@/src/data/restaurant";
 
 export default function Location() {
@@ -25,15 +25,18 @@ export default function Location() {
               <div className="rounded-2xl border border-(--line) bg-(--surface) p-4">
                 <div className="flex items-start gap-3">
                   <MapPin
-                    size={20}
-                    className="mt-0.5 shrink-0 text-(--accent)"
+                    size={18}
+                    className="shrink-0 text-(--accent)"
                     aria-hidden="true"
                   />
+
                   <div>
                     <p className="text-xs text-(--ink-muted)">العنوان</p>
+
                     <p className="mt-2 text-sm font-semibold text-(--ink)">
                       {restaurantConfig.location.address}
                     </p>
+
                     <a
                       href="https://maps.app.goo.gl/8BxfrQCY8D8EwNABA"
                       target="_blank"
@@ -49,12 +52,14 @@ export default function Location() {
               <div className="rounded-2xl border border-(--line) bg-(--surface) p-4">
                 <div className="flex items-start gap-3">
                   <Clock3
-                    size={20}
-                    className="mt-0.5 shrink-0 text-(--accent)"
+                    size={18}
+                    className="shrink-0 text-(--accent)"
                     aria-hidden="true"
                   />
+
                   <div>
                     <p className="text-xs text-(--ink-muted)">مواعيدنا</p>
+
                     <p className="mt-2 text-sm font-semibold text-(--ink)">
                       {restaurantConfig.location.hours}
                     </p>
@@ -64,19 +69,46 @@ export default function Location() {
 
               <div className="rounded-2xl border border-(--line) bg-(--surface) p-4">
                 <div className="flex items-start gap-3">
-                  <Phone
-                    size={20}
-                    className="mt-0.5 shrink-0 text-(--accent)"
+                  <Contact
+                    size={18}
+                    className="shrink-0 text-(--accent)"
                     aria-hidden="true"
                   />
-                  <div>
+
+                  <div className="min-w-0 flex-1">
                     <p className="text-xs text-(--ink-muted)">التواصل</p>
-                    <a
-                      href={`tel:${restaurantConfig.location.phone}`}
-                      className="mt-2 block text-sm font-semibold text-(--ink) hover:text-(--accent)"
-                    >
-                      {restaurantConfig.location.phone}
-                    </a>
+
+                    <div className="mt-3 grid grid-cols-2 gap-3">
+                      <a
+                        href={`tel:${restaurantConfig.location.phone}`}
+                        className="min-w-0 text-sm font-semibold text-(--ink) hover:text-(--accent)"
+                      >
+                        <span className="flex items-center gap-1.5 text-xs text-(--ink-muted)">
+                          <Phone size={14} aria-hidden="true" />
+                          اتصل بنا
+                        </span>
+
+                        <span className="mt-1 block truncate">
+                          {restaurantConfig.location.phone}
+                        </span>
+                      </a>
+
+                      <a
+                        href={`https://wa.me/20${restaurantConfig.location.whatsapp}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="min-w-0 text-sm font-semibold text-(--ink) hover:text-(--accent)"
+                      >
+                        <span className="flex items-center gap-1.5 text-xs text-(--ink-muted)">
+                          <MessageCircle size={14} aria-hidden="true" />
+                          واتساب
+                        </span>
+
+                        <span className="mt-1 block truncate">
+                          {restaurantConfig.location.whatsapp}
+                        </span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
