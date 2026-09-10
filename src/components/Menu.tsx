@@ -36,13 +36,21 @@ export default function Menu() {
   const getDefaultOptionLabel = (itemId: string) =>
     menuItems.find((item) => item.id === itemId)?.priceOptions?.[0]?.label;
 
-  const updateQuantity = (itemId: string, change: number) => {
+  const getCartKey = (itemId: string, optionLabel?: string) =>
+    optionLabel ? `${itemId}::${optionLabel}` : itemId;
+
+  const updateQuantity = (
+    itemId: string,
+    optionLabel: string | undefined,
+    change: number,
+  ) => {
     setQuantities((current) => {
-      const nextQuantity = Math.max(0, (current[itemId] ?? 0) + change);
+      const cartKey = getCartKey(itemId, optionLabel);
+      const nextQuantity = Math.max(0, (current[cartKey] ?? 0) + change);
 
       return {
         ...current,
-        [itemId]: nextQuantity,
+        [cartKey]: nextQuantity,
       };
     });
   };
@@ -124,20 +132,24 @@ export default function Menu() {
           aria-label={activeCategory?.name ?? "كل الأصناف"}
         >
           <div className="grid gap-4">
-            {visibleItems.map((item) => (
-              <MenuItemCard
-                key={item.id}
-                item={item}
-                quantity={quantities[item.id] ?? 0}
-                selectedOptionLabel={
-                  getSelectedOptionLabel(item.id) ?? getDefaultOptionLabel(item.id)
-                }
-                onSelectOption={(label) => selectOption(item.id, label)}
-                onAdd={() => updateQuantity(item.id, 1)}
-                onDecrease={() => updateQuantity(item.id, -1)}
-                onIncrease={() => updateQuantity(item.id, 1)}
-              />
-            ))}
+            {visibleItems.map((item) => {
+              const selectedOptionLabel =
+                getSelectedOptionLabel(item.id) ?? getDefaultOptionLabel(item.id);
+              const cartKey = getCartKey(item.id, selectedOptionLabel);
+
+              return (
+                <MenuItemCard
+                  key={item.id}
+                  item={item}
+                  quantity={quantities[cartKey] ?? 0}
+                  selectedOptionLabel={selectedOptionLabel}
+                  onSelectOption={(label) => selectOption(item.id, label)}
+                  onAdd={() => updateQuantity(item.id, selectedOptionLabel, 1)}
+                  onDecrease={() => updateQuantity(item.id, selectedOptionLabel, -1)}
+                  onIncrease={() => updateQuantity(item.id, selectedOptionLabel, 1)}
+                />
+              );
+            })}
           </div>
 
           {hasMoreItems ? (
@@ -158,9 +170,8 @@ export default function Menu() {
       <CartSummary
         items={menuItems}
         quantities={quantities}
-        selectedOptions={selectedOptions}
-        onDecrease={(itemId) => updateQuantity(itemId, -1)}
-        onIncrease={(itemId) => updateQuantity(itemId, 1)}
+        onDecrease={(itemId, optionLabel) => updateQuantity(itemId, optionLabel, -1)}
+        onIncrease={(itemId, optionLabel) => updateQuantity(itemId, optionLabel, 1)}
       />
     </section>
   );

@@ -7,43 +7,58 @@ import type { MenuItem } from "@/src/data/menu";
 type CartSummaryProps = {
   items: MenuItem[];
   quantities: Record<string, number>;
-  selectedOptions: Record<string, string>;
-  onDecrease: (itemId: string) => void;
-  onIncrease: (itemId: string) => void;
+  onDecrease: (itemId: string, optionLabel: string | undefined) => void;
+  onIncrease: (itemId: string, optionLabel: string | undefined) => void;
+};
+
+type CartEntry = {
+  cartKey: string;
+  item: MenuItem;
+  optionLabel?: string;
+  quantity: number;
+  price: number;
+};
+
+const parseCartKey = (cartKey: string) => {
+  const separatorIndex = cartKey.indexOf("::");
+  if (separatorIndex === -1) return { itemId: cartKey, optionLabel: undefined };
+  return {
+    itemId: cartKey.slice(0, separatorIndex),
+    optionLabel: cartKey.slice(separatorIndex + 2),
+  };
 };
 
 export default function CartSummary({
   items,
   quantities,
-  selectedOptions,
   onDecrease,
   onIncrease,
 }: CartSummaryProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const selectedItems = items.filter((item) => (quantities[item.id] ?? 0) > 0);
+  const cartEntries: CartEntry[] = Object.entries(quantities)
+    .filter(([, quantity]) => quantity > 0)
+    .map(([cartKey, quantity]) => {
+      const { itemId, optionLabel } = parseCartKey(cartKey);
+      const item = items.find((it) => it.id === itemId);
+      if (!item) return null;
+      const price = optionLabel
+        ? item.priceOptions?.find((option) => option.label === optionLabel)?.price ?? 0
+        : item.price ?? 0;
+      return { cartKey, item, optionLabel, quantity, price };
+    })
+    .filter((entry): entry is CartEntry => entry !== null);
 
-  const getSelectedPrice = (item: MenuItem) => {
-    if (item.price !== undefined) return item.price;
-
-    const selectedLabel =
-      selectedOptions[item.id] ?? item.priceOptions?.[0]?.label;
-    return item.priceOptions?.find((option) => option.label === selectedLabel)?.price ?? 0;
-  };
-
-  const getSelectedLabel = (item: MenuItem) =>
-    selectedOptions[item.id] ?? item.priceOptions?.[0]?.label;
-
-  const totalQuantity = selectedItems.reduce(
-    (total, item) => total + (quantities[item.id] ?? 0),
+  const totalQuantity = cartEntries.reduce(
+    (total, entry) => total + entry.quantity,
     0,
   );
-  const totalPrice = selectedItems.reduce(
-    (total, item) => total + getSelectedPrice(item) * (quantities[item.id] ?? 0),
+  const totalPrice = cartEntries.reduce(
+    (total, entry) => total + entry.price * entry.quantity,
     0,
   );
 
-  if (selectedItems.length === 0) return null;
+  if (cartEntries.length === 0) return null;
 
   return (
     <>
@@ -92,25 +107,23 @@ export default function CartSummary({
             </div>
 
             <div className="divide-y divide-(--line)">
-              {selectedItems.map((item) => {
-                const quantity = quantities[item.id] ?? 0;
-                const selectedLabel = getSelectedLabel(item);
-                const selectedPrice = getSelectedPrice(item);
+              {cartEntries.map((entry) => {
+                const { item, optionLabel, quantity, price } = entry;
 
                 return (
-                  <div key={item.id} className="flex items-center gap-3 py-3">
+                  <div key={entry.cartKey} className="flex items-center gap-3 py-3">
                     <div className="min-w-0 flex-1">
                       <h3 className="text-sm font-bold text-(--ink)">{item.name}</h3>
                       <p className="mt-1 text-xs text-(--ink-soft)">
-                        {selectedLabel ? `${selectedLabel} · ` : ""}
-                        {selectedPrice} جنيه × {quantity}
+                        {optionLabel ? `${optionLabel} · ` : ""}
+                        {price} جنيه × {quantity}
                       </p>
                     </div>
 
                     <div className="flex items-center gap-1 rounded-lg border border-(--line) p-1">
                       <button
                         type="button"
-                        onClick={() => onIncrease(item.id)}
+                        onClick={() => onIncrease(item.id, optionLabel)}
                         aria-label={`زود ${item.name}`}
                         className="flex size-8 items-center justify-center rounded-md text-base font-bold text-(--ink) hover:bg-(--accent-glow)"
                       >
@@ -121,7 +134,7 @@ export default function CartSummary({
                       </span>
                       <button
                         type="button"
-                        onClick={() => onDecrease(item.id)}
+                        onClick={() => onDecrease(item.id, optionLabel)}
                         aria-label={`قلل ${item.name}`}
                         className="flex size-8 items-center justify-center rounded-md text-base font-bold text-(--ink) hover:bg-(--accent-glow)"
                       >
