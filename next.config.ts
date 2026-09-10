@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
   images: {
     qualities: [60, 65, 75],
   },
+
+  watchOptions: {
+    poll: 1000,
+  },
 };
 
 export default nextConfig;

@@ -29,7 +29,7 @@ export default function Menu() {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
   const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null);
-  const [showAllItems, setShowAllItems] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(initialVisibleCount);
 
   const getSelectedOptionLabel = (itemId: string) => selectedOptions[itemId];
 
@@ -71,12 +71,13 @@ export default function Menu() {
     : mixedMenuItems;
 
   const hasMoreItems = !activeCategoryId && filteredItems.length > initialVisibleCount;
-  const visibleItems = showAllItems || !hasMoreItems
-    ? filteredItems
-    : filteredItems.slice(0, initialVisibleCount);
+  const showLoadMore = hasMoreItems && visibleCount < filteredItems.length;
+  const visibleItems = hasMoreItems
+    ? filteredItems.slice(0, visibleCount)
+    : filteredItems;
 
   const handleCategoryChange = (categoryId: string) => {
-    setShowAllItems(false);
+    setVisibleCount(initialVisibleCount);
     setActiveCategoryId((current) => (current === categoryId ? null : categoryId));
   };
 
@@ -152,15 +153,14 @@ export default function Menu() {
             })}
           </div>
 
-          {hasMoreItems ? (
+          {showLoadMore ? (
             <div className="mt-6 flex justify-center">
               <button
                 type="button"
-                onClick={() => setShowAllItems((current) => !current)}
-                aria-expanded={showAllItems}
+                onClick={() => setVisibleCount((current) => current + initialVisibleCount)}
                 className="rounded-full border border-(--line) bg-(--surface) px-5 py-2.5 text-sm font-semibold text-(--ink) transition-colors hover:border-(--accent) hover:text-(--accent) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
               >
-                {showAllItems ? "عرض أقل" : "عرض المزيد"}
+                عرض المزيد
               </button>
             </div>
           ) : null}
