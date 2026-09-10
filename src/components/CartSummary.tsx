@@ -7,6 +7,7 @@ import type { MenuItem } from "@/src/data/menu";
 type CartSummaryProps = {
   items: MenuItem[];
   quantities: Record<string, number>;
+  selectedOptions: Record<string, string>;
   onDecrease: (itemId: string) => void;
   onIncrease: (itemId: string) => void;
 };
@@ -14,18 +15,31 @@ type CartSummaryProps = {
 export default function CartSummary({
   items,
   quantities,
+  selectedOptions,
   onDecrease,
   onIncrease,
 }: CartSummaryProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const selectedItems = items.filter((item) => (quantities[item.id] ?? 0) > 0);
+
+  const getSelectedPrice = (item: MenuItem) => {
+    if (item.price !== undefined) return item.price;
+
+    const selectedLabel =
+      selectedOptions[item.id] ?? item.priceOptions?.[0]?.label;
+    return item.priceOptions?.find((option) => option.label === selectedLabel)?.price ?? 0;
+  };
+
+  const getSelectedLabel = (item: MenuItem) =>
+    selectedOptions[item.id] ?? item.priceOptions?.[0]?.label;
+
   const totalQuantity = selectedItems.reduce(
     (total, item) => total + (quantities[item.id] ?? 0),
     0,
   );
   const totalPrice = selectedItems.reduce(
-    (total, item) => total + item.price * (quantities[item.id] ?? 0),
+    (total, item) => total + getSelectedPrice(item) * (quantities[item.id] ?? 0),
     0,
   );
 
@@ -80,13 +94,16 @@ export default function CartSummary({
             <div className="divide-y divide-(--line)">
               {selectedItems.map((item) => {
                 const quantity = quantities[item.id] ?? 0;
+                const selectedLabel = getSelectedLabel(item);
+                const selectedPrice = getSelectedPrice(item);
 
                 return (
                   <div key={item.id} className="flex items-center gap-3 py-3">
                     <div className="min-w-0 flex-1">
                       <h3 className="text-sm font-bold text-(--ink)">{item.name}</h3>
                       <p className="mt-1 text-xs text-(--ink-soft)">
-                        {item.price} جنيه × {quantity}
+                        {selectedLabel ? `${selectedLabel} · ` : ""}
+                        {selectedPrice} جنيه × {quantity}
                       </p>
                     </div>
 
