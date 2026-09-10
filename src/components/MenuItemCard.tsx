@@ -8,6 +8,8 @@ import type { MenuItem } from "@/src/data/menu";
 type MenuItemCardProps = {
   item: MenuItem;
   quantity: number;
+  selectedOptionLabel?: string;
+  onSelectOption: (label: string) => void;
   onAdd: () => void;
   onDecrease: () => void;
   onIncrease: () => void;
@@ -16,45 +18,85 @@ type MenuItemCardProps = {
 export default function MenuItemCard({
   item,
   quantity,
+  selectedOptionLabel,
+  onSelectOption,
   onAdd,
   onDecrease,
   onIncrease,
 }: MenuItemCardProps) {
   const [isImageOpen, setIsImageOpen] = useState(false);
+  const selectedOption = item.priceOptions?.find(
+    (option) => option.label === selectedOptionLabel,
+  );
+  const currentPrice = item.price ?? selectedOption?.price;
 
   return (
     <article className="flex w-full overflow-hidden rounded-2xl border border-(--line) bg-(--surface) p-2.5 sm:p-3">
       <div className="relative size-24 shrink-0 overflow-hidden rounded-xl border border-(--line-soft) bg-(--surface-tint) sm:size-28">
-        <Image
-          src={item.image}
-          alt={item.name}
-          fill
-          sizes="(min-width: 640px) 112px, 96px"
-          quality={60}
-          className="object-cover"
-        />
+        {item.image ? (
+          <>
+            <Image
+              src={item.image}
+              alt={item.name}
+              fill
+              sizes="(min-width: 640px) 112px, 96px"
+              quality={60}
+              className="object-cover"
+            />
 
-        <button
-          type="button"
-          onClick={() => setIsImageOpen(true)}
-          aria-label={`تكبير صورة ${item.name}`}
-          className="absolute bottom-1.5 inset-s-1.5 inline-flex size-8 items-center justify-center rounded-lg border border-white/15 bg-black/65 text-white shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
-        >
-          <Maximize2 size={14} aria-hidden="true" />
-        </button>
+            <button
+              type="button"
+              onClick={() => setIsImageOpen(true)}
+              aria-label={`تكبير صورة ${item.name}`}
+              className="absolute bottom-1.5 inset-s-1.5 inline-flex size-8 items-center justify-center rounded-lg border border-white/15 bg-black/65 text-white shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+            >
+              <Maximize2 size={14} aria-hidden="true" />
+            </button>
+          </>
+        ) : (
+          <div className="flex size-full items-center justify-center px-2 text-center text-xs font-semibold text-(--ink-muted)">
+            الصورة قريبًا
+          </div>
+        )}
       </div>
 
       <div className="min-w-0 flex-1 px-3 py-1 sm:px-4">
         <div className="min-w-0">
           <h3 className="text-base font-bold leading-6 text-(--ink)">{item.name}</h3>
-          <p className="mt-1.5 text-sm leading-6 text-(--ink-soft)">
-            {item.description}
-          </p>
+          {item.description ? (
+            <p className="mt-1.5 text-sm leading-6 text-(--ink-soft)">
+              {item.description}
+            </p>
+          ) : null}
         </div>
+
+        {item.priceOptions?.length ? (
+          <div className="mt-3 flex flex-wrap gap-1.5" aria-label={`اختار حجم ${item.name}`}>
+            {item.priceOptions.map((option) => {
+              const isSelected = option.label === selectedOptionLabel;
+
+              return (
+                <button
+                  key={option.label}
+                  type="button"
+                  onClick={() => onSelectOption(option.label)}
+                  aria-pressed={isSelected}
+                  className={`rounded-md border px-3 py-1.5 text-xs font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent) ${
+                    isSelected
+                      ? "border-(--accent) bg-(--accent) text-foreground"
+                      : "border-(--line) bg-background text-(--ink-soft) hover:border-(--accent) hover:text-(--ink)"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              );
+            })}
+          </div>
+        ) : null}
 
         <div className="mt-2.5 grid grid-cols-[minmax(0,1fr)_96px] items-center gap-3 sm:grid-cols-[minmax(0,1fr)_104px]">
           <span className="min-w-0 text-base font-extrabold leading-6 text-(--accent)">
-            {item.price} جنيه
+            {currentPrice !== undefined ? `${currentPrice} جنيه` : "السعر غير محدد"}
           </span>
 
           <div className="w-full">
@@ -99,7 +141,7 @@ export default function MenuItemCard({
         </div>
       </div>
 
-      {isImageOpen && (
+      {isImageOpen && item.image ? (
         <div
           className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 p-4"
           role="dialog"
@@ -132,7 +174,7 @@ export default function MenuItemCard({
             </div>
           </div>
         </div>
-      )}
+      ) : null}
     </article>
   );
 }
