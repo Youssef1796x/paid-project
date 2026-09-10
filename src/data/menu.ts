@@ -20,70 +20,22 @@ export type MenuItem = {
 };
 
 export const menuCategories: MenuCategory[] = [
-  {
-    id: "chicken-crepe",
-    name: "كريب الدجاج",
-  },
-  {
-    id: "meat-cheese-crepe",
-    name: "كريب اللحوم والأجبان",
-  },
-  {
-    id: "seafood-crepe",
-    name: "كريب السي فود",
-  },
-  {
-    id: "sweet-crepe",
-    name: "كريب الحلو",
-  },
-  {
-    id: "chicken-sandwiches",
-    name: "سندوتشات الفراخ",
-  },
-  {
-    id: "chicken-burger",
-    name: "تشيكن برجر",
-  },
-  {
-    id: "beef-burger",
-    name: "بيف برجر",
-  },
-  {
-    id: "smash-burger",
-    name: "سماش برجر",
-  },
-  {
-    id: "seafood-meals",
-    name: "وجبات السي فود",
-  },
-  {
-    id: "seafood-sandwiches",
-    name: "سندوتشات السي فود",
-  },
-  {
-    id: "milano-pasta",
-    name: "باستا ميلانو",
-  },
-  {
-    id: "fries-zone",
-    name: "قسم البطاطس",
-  },
-  {
-    id: "al-harash",
-    name: "قسم الحرش",
-  },
-  {
-    id: "al-harash-meals",
-    name: "وجبات الحرش",
-  },
-  {
-    id: "drinks",
-    name: "قسم المشروبات",
-  },
-  {
-    id: "meat-chicken-meals",
-    name: "وجبات اللحوم والدجاج",
-  },
+  { id: "chicken-crepe", name: "كريب الدجاج" },
+  { id: "meat-cheese-crepe", name: "كريب اللحوم والأجبان" },
+  { id: "seafood-crepe", name: "كريب السي فود" },
+  { id: "sweet-crepe", name: "كريب الحلو" },
+  { id: "chicken-sandwiches", name: "سندوتشات الفراخ" },
+  { id: "chicken-burger", name: "تشيكن برجر" },
+  { id: "beef-burger", name: "بيف برجر" },
+  { id: "smash-burger", name: "سماش برجر" },
+  { id: "seafood-meals", name: "وجبات السي فود" },
+  { id: "seafood-sandwiches", name: "سندوتشات السي فود" },
+  { id: "milano-pasta", name: "باستا ميلانو" },
+  { id: "fries-zone", name: "قسم البطاطس" },
+  { id: "al-harash", name: "قسم الحرش" },
+  { id: "al-harash-meals", name: "وجبات الحرش" },
+  { id: "drinks", name: "قسم المشروبات" },
+  { id: "meat-chicken-meals", name: "وجبات اللحوم والدجاج" },
 ];
 
 export const menuItems: MenuItem[] = [
@@ -91,8 +43,7 @@ export const menuItems: MenuItem[] = [
     id: "king-smoky",
     category: "chicken-crepe",
     name: "كينج سموكي",
-    description:
-      "قطع دجاج متبلة، صوص باربيكيو مدخن، ميكس جبن، خضار",
+    description: "قطع دجاج متبلة، صوص باربيكيو مدخن، ميكس جبن، خضار",
     price: 130,
     image: "",
     available: true,
@@ -110,8 +61,7 @@ export const menuItems: MenuItem[] = [
     id: "el-chico-fajita",
     category: "chicken-crepe",
     name: "التشيكو فاهيتا",
-    description:
-      "شرائح دجاج فاهيتا متبلة، بصل وفلفل ملون، تتبيلة مكسيكية",
+    description: "شرائح دجاج فاهيتا متبلة، بصل وفلفل ملون، تتبيلة مكسيكية",
     price: 135,
     image: "",
     available: true,
@@ -138,8 +88,7 @@ export const menuItems: MenuItem[] = [
     id: "blue-wave-crepe",
     category: "chicken-crepe",
     name: "بلو ويف",
-    description:
-      "قطع دجاج، صوص الجبنة الريكفورد المميزة، وموزاريلا",
+    description: "قطع دجاج، صوص الجبنة الريكفورد المميزة، وموزاريلا",
     price: 140,
     image: "",
     available: true,
@@ -148,19 +97,16 @@ export const menuItems: MenuItem[] = [
     id: "chicken-monster",
     category: "chicken-crepe",
     name: "تشيكن مونستر",
-    description:
-      "ميكس دجاج مقرمش ومشوي، حشو مضاعف، وموزاريلا",
+    description: "ميكس دجاج مقرمش ومشوي، حشو مضاعف، وموزاريلا",
     price: 140,
     image: "",
     available: true,
   },
-
   {
     id: "el-haty-mix",
     category: "meat-cheese-crepe",
     name: "ميكس الحاتي",
-    description:
-      "توليفة شرقية مميزة من الكفتة والسجق البلدي مع الموزاريلا",
+    description: "توليفة شرقية مميزة من الكفتة والسجق البلدي مع الموزاريلا",
     price: 140,
     image: "",
     available: true,
@@ -169,8 +115,7 @@ export const menuItems: MenuItem[] = [
     id: "chili-bomb",
     category: "meat-cheese-crepe",
     name: "تشيلي بومب هوت دوج",
-    description:
-      "شرائح هوت دوج مكسيكانو، صوص تشيلي حار، موزاريلا، جبنة تركي",
+    description: "شرائح هوت دوج مكسيكانو، صوص تشيلي حار، موزاريلا، جبنة تركي",
     price: 140,
     image: "",
     available: true,
@@ -179,19 +124,16 @@ export const menuItems: MenuItem[] = [
     id: "cheese-mix",
     category: "meat-cheese-crepe",
     name: "حدوقة ميكس جبن",
-    description:
-      "توليفة مميزة من الجبن الشيدر والموزاريلا والتركي السايح",
+    description: "توليفة مميزة من الجبن الشيدر والموزاريلا والتركي السايح",
     price: 110,
     image: "",
     available: true,
   },
-
   {
     id: "titanic",
     category: "seafood-crepe",
     name: "تيتانك ميكس سي فود",
-    description:
-      "جمبري مقلي كرانشي، سبيط مقرمش، طحينة، وموزاريلا",
+    description: "جمبري مقلي كرانشي، سبيط مقرمش، طحينة، وموزاريلا",
     price: 210,
     image: "",
     available: true,
@@ -200,13 +142,11 @@ export const menuItems: MenuItem[] = [
     id: "tarh-el-bahr",
     category: "seafood-crepe",
     name: "طرح البحر ميكس سي فود",
-    description:
-      "ميكس جمبري وسبيط مشوي بالزبدة والثوم والليمون، وموزاريلا",
+    description: "ميكس جمبري وسبيط مشوي بالزبدة والثوم والليمون، وموزاريلا",
     price: 210,
     image: "",
     available: true,
   },
-
   {
     id: "nutella-bomb",
     category: "sweet-crepe",
@@ -234,13 +174,11 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
-
   {
     id: "golden-strips",
     category: "chicken-sandwiches",
     name: "جولدن ستريبس",
-    description:
-      "قطع دجاج إستريبس مقرمشة ذهبية، خس، ومايونيز",
+    description: "قطع دجاج إستريبس مقرمشة ذهبية، خس، ومايونيز",
     priceOptions: [
       { label: "M", price: 100 },
       { label: "L", price: 130 },
@@ -264,8 +202,7 @@ export const menuItems: MenuItem[] = [
     id: "sonic-bomb-sandwich",
     category: "chicken-sandwiches",
     name: "سونيك بوم",
-    description:
-      "دجاج زنجر مقرمش سبايسي، صوص حار، وهالبينو",
+    description: "دجاج زنجر مقرمش سبايسي، صوص حار، وهالبينو",
     priceOptions: [
       { label: "M", price: 110 },
       { label: "L", price: 140 },
@@ -301,8 +238,7 @@ export const menuItems: MenuItem[] = [
     id: "buffalo-bomb",
     category: "chicken-sandwiches",
     name: "بافلو بوم",
-    description:
-      "قطع دجاج مقرمشة بصوص البافلو الأمريكي الحامض واللاذع",
+    description: "قطع دجاج مقرمشة بصوص البافلو الأمريكي الحامض واللاذع",
     priceOptions: [
       { label: "M", price: 100 },
       { label: "L", price: 130 },
@@ -314,8 +250,7 @@ export const menuItems: MenuItem[] = [
     id: "fajita-class",
     category: "chicken-sandwiches",
     name: "فاهيتا كلاس",
-    description:
-      "شرائح دجاج فاهيتا متبلة على الجريل مع البصل والفلفل الملون",
+    description: "شرائح دجاج فاهيتا متبلة على الجريل مع البصل والفلفل الملون",
     priceOptions: [
       { label: "M", price: 100 },
       { label: "L", price: 130 },
@@ -323,7 +258,6 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
-
   {
     id: "chicken-hill",
     category: "chicken-burger",
@@ -340,8 +274,7 @@ export const menuItems: MenuItem[] = [
     id: "buffalo-strips",
     category: "chicken-burger",
     name: "بافلو ستريبس",
-    description:
-      "قطع دجاج إستريبس مقرمشة بصوص البافلو الحار",
+    description: "قطع دجاج إستريبس مقرمشة بصوص البافلو الحار",
     priceOptions: [
       { label: "سنجل", price: 120 },
       { label: "دبل", price: 150 },
@@ -353,8 +286,7 @@ export const menuItems: MenuItem[] = [
     id: "mr-sour",
     category: "chicken-burger",
     name: "مستر صاور",
-    description:
-      "برجر دجاج بخلطة الصوص الحامض المميز والمخلل",
+    description: "برجر دجاج بخلطة الصوص الحامض المميز والمخلل",
     priceOptions: [
       { label: "سنجل", price: 120 },
       { label: "دبل", price: 150 },
@@ -362,13 +294,11 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
-
   {
     id: "cheesy-lazy",
     category: "beef-burger",
     name: "تشيزي ليزي",
-    description:
-      "برجر لحم مشوي غرقان بصوص الجبنة الشيدر السايحة",
+    description: "برجر لحم مشوي غرقان بصوص الجبنة الشيدر السايحة",
     priceOptions: [
       { label: "سنجل", price: 150 },
       { label: "دبل", price: 210 },
@@ -380,8 +310,7 @@ export const menuItems: MenuItem[] = [
     id: "classic-combo",
     category: "beef-burger",
     name: "كلاسيك كومبو (وجبة شاملة)",
-    description:
-      "ساندوتش برجر لحم كلاسيكي + بطاطس مقرمشة + بيبسي كولا",
+    description: "ساندوتش برجر لحم كلاسيكي + بطاطس مقرمشة + بيبسي كولا",
     price: 150,
     image: "",
     available: true,
@@ -402,8 +331,7 @@ export const menuItems: MenuItem[] = [
     id: "mushroom-lava",
     category: "beef-burger",
     name: "مشروم لافا",
-    description:
-      "برجر لحم، مشروم مشوي، غرقان بصوص المشروم والشيدر",
+    description: "برجر لحم، مشروم مشوي، غرقان بصوص المشروم والشيدر",
     priceOptions: [
       { label: "سنجل", price: 150 },
       { label: "دبل", price: 210 },
@@ -411,13 +339,11 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
-
   {
     id: "smash-town",
     category: "smash-burger",
     name: "سماش تاون",
-    description:
-      "لحم بقري مضغوط مقرمش، جبنة شيدر، خيار مخلل، وصوص السماش",
+    description: "لحم بقري مضغوط مقرمش، جبنة شيدر، خيار مخلل، وصوص السماش",
     priceOptions: [
       { label: "سنجل", price: 150 },
       { label: "دبل", price: 210 },
@@ -441,8 +367,7 @@ export const menuItems: MenuItem[] = [
     id: "smoky-mushroom",
     category: "smash-burger",
     name: "سموكي مشروم",
-    description:
-      "لحم سماش، مشروم مشوي، بيف بيكون مدخن، وجبنة شيدر",
+    description: "لحم سماش، مشروم مشوي، بيف بيكون مدخن، وجبنة شيدر",
     priceOptions: [
       { label: "سنجل", price: 150 },
       { label: "دبل", price: 210 },
@@ -450,7 +375,6 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
-
   {
     id: "hala-bel-khamees",
     category: "seafood-meals",
@@ -481,7 +405,6 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
-
   {
     id: "bahreya",
     category: "seafood-sandwiches",
@@ -560,7 +483,6 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
-
   {
     id: "negresco-lava",
     category: "milano-pasta",
@@ -683,7 +605,6 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
-
   {
     id: "cheetos-potato",
     category: "fries-zone",
@@ -762,7 +683,6 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
-
   {
     id: "kebda",
     category: "al-harash",
@@ -824,7 +744,6 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
-
   {
     id: "kings-meal",
     category: "al-harash-meals",
@@ -855,7 +774,6 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
-
   {
     id: "pepsi-cans",
     category: "drinks",
@@ -946,7 +864,6 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
-
   {
     id: "kofta-sogoq-meal",
     category: "meat-chicken-meals",
