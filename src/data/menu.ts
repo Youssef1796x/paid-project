@@ -20,22 +20,70 @@ export type MenuItem = {
 };
 
 export const menuCategories: MenuCategory[] = [
-  { id: "chicken-crepe", name: "كريب الدجاج" },
-  { id: "meat-cheese-crepe", name: "كريب اللحوم والأجبان" },
-  { id: "seafood-crepe", name: "كريب السي فود" },
-  { id: "sweet-crepe", name: "كريب الحلو" },
-  { id: "chicken-sandwiches", name: "سندوتشات الفراخ" },
-  { id: "chicken-burger", name: "تشيكن برجر" },
-  { id: "beef-burger", name: "بيف برجر" },
-  { id: "smash-burger", name: "سماش برجر" },
-  { id: "seafood-meals", name: "وجبات السي فود" },
-  { id: "seafood-sandwiches", name: "سندوتشات السي فود" },
-  { id: "milano-pasta", name: "باستا ميلانو" },
-  { id: "fries-zone", name: "قسم البطاطس" },
-  { id: "al-harash", name: "قسم الحرش" },
-  { id: "al-harash-meals", name: "وجبات الحرش" },
-  { id: "drinks", name: "قسم المشروبات" },
-  { id: "meat-chicken-meals", name: "وجبات اللحوم والدجاج" },
+  {
+    id: "chicken-crepe",
+    name: "كريب الدجاج",
+  },
+  {
+    id: "meat-cheese-crepe",
+    name: "كريب اللحوم والأجبان",
+  },
+  {
+    id: "seafood-crepe",
+    name: "كريب السي فود",
+  },
+  {
+    id: "sweet-crepe",
+    name: "كريب الحلو",
+  },
+  {
+    id: "chicken-sandwiches",
+    name: "سندوتشات الفراخ",
+  },
+  {
+    id: "chicken-burger",
+    name: "تشيكن برجر",
+  },
+  {
+    id: "beef-burger",
+    name: "بيف برجر",
+  },
+  {
+    id: "smash-burger",
+    name: "سماش برجر",
+  },
+  {
+    id: "seafood-meals",
+    name: "وجبات السي فود",
+  },
+  {
+    id: "seafood-sandwiches",
+    name: "سندوتشات السي فود",
+  },
+  {
+    id: "milano-pasta",
+    name: "باستا ميلانو",
+  },
+  {
+    id: "fries-zone",
+    name: "قسم البطاطس",
+  },
+  {
+    id: "al-harash",
+    name: "قسم الحرش",
+  },
+  {
+    id: "al-harash-meals",
+    name: "وجبات الحرش",
+  },
+  {
+    id: "drinks",
+    name: "قسم المشروبات",
+  },
+  {
+    id: "meat-chicken-meals",
+    name: "وجبات اللحوم والدجاج",
+  },
 ];
 
 export const menuItems: MenuItem[] = [
@@ -102,6 +150,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "el-haty-mix",
     category: "meat-cheese-crepe",
@@ -129,6 +178,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "titanic",
     category: "seafood-crepe",
@@ -147,6 +197,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "nutella-bomb",
     category: "sweet-crepe",
@@ -174,6 +225,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "golden-strips",
     category: "chicken-sandwiches",
@@ -258,6 +310,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "chicken-hill",
     category: "chicken-burger",
@@ -294,6 +347,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "cheesy-lazy",
     category: "beef-burger",
@@ -339,6 +393,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "smash-town",
     category: "smash-burger",
@@ -375,6 +430,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "hala-bel-khamees",
     category: "seafood-meals",
@@ -405,12 +461,12 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "bahreya",
     category: "seafood-sandwiches",
     name: "بحرية",
-    description:
-      "جمبري مشوي وجمبري جامبو مقرمش، صوص تارتار وخس فريش",
+    description: "جمبري مشوي وجمبري جامبو مقرمش، صوص تارتار وخس فريش",
     priceOptions: [
       { label: "M", price: 150 },
       { label: "L", price: 210 },
@@ -483,6 +539,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "negresco-lava",
     category: "milano-pasta",
@@ -605,6 +662,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "cheetos-potato",
     category: "fries-zone",
@@ -622,8 +680,7 @@ export const menuItems: MenuItem[] = [
     id: "twins",
     category: "fries-zone",
     name: "التوينز",
-    description:
-      "ميكس البطاطس المزدوج بتوليفة مميزة من صوصات المطعم",
+    description: "ميكس البطاطس المزدوج بتوليفة مميزة من صوصات المطعم",
     priceOptions: [
       { label: "باكت", price: 35 },
       { label: "سندوتش", price: 45 },
@@ -635,8 +692,7 @@ export const menuItems: MenuItem[] = [
     id: "mix-sauce",
     category: "fries-zone",
     name: "ميكس صوصات",
-    description:
-      "أصابع البطاطس الذهبية الغرقانة بتشكيلة من الصوصات الخاصة",
+    description: "أصابع البطاطس الذهبية الغرقانة بتشكيلة من الصوصات الخاصة",
     priceOptions: [
       { label: "باكت", price: 45 },
       { label: "سندوتش", price: 55 },
@@ -648,8 +704,7 @@ export const menuItems: MenuItem[] = [
     id: "lava-buffalo",
     category: "fries-zone",
     name: "لافا بافلو",
-    description:
-      "بركان البطاطس المشعلة بصوص البافلو الحار واللاذع",
+    description: "بركان البطاطس المشعلة بصوص البافلو الحار واللاذع",
     priceOptions: [
       { label: "باكت", price: 45 },
       { label: "سندوتش", price: 55 },
@@ -661,8 +716,7 @@ export const menuItems: MenuItem[] = [
     id: "flamingo",
     category: "fries-zone",
     name: "فلامنجو",
-    description:
-      "البطاطس المقرمشة بصوص الفلامنجو المميز المبتكر للمطعم",
+    description: "البطاطس المقرمشة بصوص الفلامنجو المميز المبتكر للمطعم",
     priceOptions: [
       { label: "باكت", price: 70 },
       { label: "سندوتش", price: 85 },
@@ -674,8 +728,7 @@ export const menuItems: MenuItem[] = [
     id: "extreme",
     category: "fries-zone",
     name: "إكستريم",
-    description:
-      "وجبة البطاطس العملاقة الغنية بالإضافات وأقوى النكهات",
+    description: "وجبة البطاطس العملاقة الغنية بالإضافات وأقوى النكهات",
     priceOptions: [
       { label: "باكت", price: 70 },
       { label: "سندوتش", price: 80 },
@@ -683,12 +736,12 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "kebda",
     category: "al-harash",
     name: "كبدة",
-    description:
-      "شرائح الكبدة الإسكندراني المتبلة بالثوم، الفلفل الحار، والليمون",
+    description: "شرائح الكبدة الإسكندراني المتبلة بالثوم، الفلفل الحار، والليمون",
     priceOptions: [
       { label: "S", price: 40 },
       { label: "M", price: 70 },
@@ -701,8 +754,7 @@ export const menuItems: MenuItem[] = [
     id: "sogoq",
     category: "al-harash",
     name: "سجق",
-    description:
-      "السجق الشرقي المتشوح بخلطة الطماطم، البصل، والبهارات الخاصة",
+    description: "السجق الشرقي المتشوح بخلطة الطماطم، البصل، والبهارات الخاصة",
     priceOptions: [
       { label: "S", price: 45 },
       { label: "M", price: 75 },
@@ -715,8 +767,7 @@ export const menuItems: MenuItem[] = [
     id: "hawawshi",
     category: "al-harash",
     name: "حواوشي",
-    description:
-      "رغيف الحواوشي البلدي المقرمش المليان باللحمة المفرومة المتبلة",
+    description: "رغيف الحواوشي البلدي المقرمش المليان باللحمة المفرومة المتبلة",
     priceOptions: [
       { label: "M", price: 45 },
       { label: "L", price: 75 },
@@ -728,8 +779,7 @@ export const menuItems: MenuItem[] = [
     id: "mokh-al-prince",
     category: "al-harash",
     name: "مخ سندوتش البرنس",
-    description:
-      "قطع المخ المقلي بخلطة البرنس الشهيرة، قرمشة وطعم أصيل",
+    description: "قطع المخ المقلي بخلطة البرنس الشهيرة، قرمشة وطعم أصيل",
     price: 75,
     image: "",
     available: true,
@@ -738,12 +788,12 @@ export const menuItems: MenuItem[] = [
     id: "mombar-sandwich",
     category: "al-harash",
     name: "ممبار سندوتش",
-    description:
-      "أصابع الممبار البلدي المحمر والمقرمش بخلطة الأرز المتبلة",
+    description: "أصابع الممبار البلدي المحمر والمقرمش بخلطة الأرز المتبلة",
     price: 75,
     image: "",
     available: true,
   },
+
   {
     id: "kings-meal",
     category: "al-harash-meals",
@@ -758,8 +808,7 @@ export const menuItems: MenuItem[] = [
     id: "candy-beef",
     category: "al-harash-meals",
     name: "كباب حلة كاندي بيف",
-    description:
-      "قطع اللحم البقري الدايبة المستوية على الهادي بالبصل المكرمل",
+    description: "قطع اللحم البقري الدايبة المستوية على الهادي بالبصل المكرمل",
     price: 100,
     image: "",
     available: true,
@@ -768,12 +817,12 @@ export const menuItems: MenuItem[] = [
     id: "kokoroko",
     category: "al-harash-meals",
     name: "كوكوروكو سوسيس",
-    description:
-      "سيخ السوسيس المقرمش الكوري المغطى بالكفر الذهبي والجبن",
+    description: "سيخ السوسيس المقرمش الكوري المغطى بالكفر الذهبي والجبن",
     price: 100,
     image: "",
     available: true,
   },
+
   {
     id: "pepsi-cans",
     category: "drinks",
@@ -864,6 +913,7 @@ export const menuItems: MenuItem[] = [
     image: "",
     available: true,
   },
+
   {
     id: "kofta-sogoq-meal",
     category: "meat-chicken-meals",
