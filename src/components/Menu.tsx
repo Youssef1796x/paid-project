@@ -27,8 +27,14 @@ const initialVisibleCount = 6;
 
 export default function Menu() {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
+  const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
   const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null);
   const [showAllItems, setShowAllItems] = useState(false);
+
+  const getSelectedOptionLabel = (itemId: string) => selectedOptions[itemId];
+
+  const getDefaultOptionLabel = (itemId: string) =>
+    menuItems.find((item) => item.id === itemId)?.priceOptions?.[0]?.label;
 
   const updateQuantity = (itemId: string, change: number) => {
     setQuantities((current) => {
@@ -39,6 +45,13 @@ export default function Menu() {
         [itemId]: nextQuantity,
       };
     });
+  };
+
+  const selectOption = (itemId: string, label: string) => {
+    setSelectedOptions((current) => ({
+      ...current,
+      [itemId]: label,
+    }));
   };
 
   const activeCategory = menuCategories.find(
@@ -116,6 +129,10 @@ export default function Menu() {
                 key={item.id}
                 item={item}
                 quantity={quantities[item.id] ?? 0}
+                selectedOptionLabel={
+                  getSelectedOptionLabel(item.id) ?? getDefaultOptionLabel(item.id)
+                }
+                onSelectOption={(label) => selectOption(item.id, label)}
                 onAdd={() => updateQuantity(item.id, 1)}
                 onDecrease={() => updateQuantity(item.id, -1)}
                 onIncrease={() => updateQuantity(item.id, 1)}
@@ -141,6 +158,7 @@ export default function Menu() {
       <CartSummary
         items={menuItems}
         quantities={quantities}
+        selectedOptions={selectedOptions}
         onDecrease={(itemId) => updateQuantity(itemId, -1)}
         onIncrease={(itemId) => updateQuantity(itemId, 1)}
       />
