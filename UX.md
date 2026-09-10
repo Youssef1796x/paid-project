@@ -42,10 +42,22 @@ The Menu is the main part of the website.
 
 Current categories:
 
-- برجر
-- ساندوتشات
-- كريب حادق
-- كريب حلو
+- كريب الدجاج
+- كريب اللحوم والأجبان
+- كريب السي فود
+- كريب الحلو
+- سندوتشات الفراخ
+- تشيكن برجر
+- بيف برجر
+- سماش برجر
+- وجبات السي فود
+- سندوتشات السي فود
+- باستا ميلانو
+- قسم البطاطس
+- قسم الحرش
+- وجبات الحرش
+- قسم المشروبات
+- وجبات اللحوم والدجاج
 
 Categories should help users jump between sections rather than hide/filter the rest of the menu.
 
@@ -55,14 +67,14 @@ Each item should clearly show:
 
 - image
 - name
-- short description
-- price
+- short description when available
+- price or price options
 - availability
 - add/quantity controls
 
 Direct adding should be possible for available items.
 
-The current menu contains 16 real items from `src/data/menu.ts`.
+The current main menu contains 77 real items from `src/data/menu.ts`.
 
 ## Cart
 
@@ -198,7 +210,3 @@ real data
 → visible UI
 → real interaction
 → state change
-→ user-visible result
-→ manual testing
-→ checkpoint
-→ expand only after the pattern is proven
